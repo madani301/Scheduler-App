@@ -1,0 +1,62 @@
+
+
+<h3>Add Coursework</h3>
+<div class="row">
+   <form action="/courseworks" method="POST" class="col s12">
+      <div class="row">
+         <div class="input-field col s12">
+            <input type="text" id="cwTitle" name="cwTitle">
+            <label for="cwTitle">Coursework Title</label>
+         </div>
+         <div class="input-field col s12">
+            <input type="text" id="modName" name="modName">
+            <label for="modName">Module Name</label>
+         </div>
+         <div class="input-field col s12">
+            <select id="modLevel" name="modLevel">
+               <option value="Level 1">Level 1</option>
+               <option value="Level 2">Level 2</option>
+               <option value="Level 3">Level 3</option>
+               <option value="Level 4">Level 4</option>
+            </select>
+            <label for="modLevel">Module Level</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="text" id="milestones" name="milestones">
+            <label for="milestones">Milestone 1</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="text" id="milestones" name="milestones">
+            <label for="milestones">Milestone 2</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="text" id="milestones" name="milestones">
+            <label for="milestones">Milestone 3</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="date" id="startDate" name="startDate" placeholder="">
+            <label for="startDate">Start Date</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="date" id="targetDeadline" name="targetDeadline" placeholder="">
+            <label for="targetDeadline">Target Deadline</label>
+         </div>
+         <div class="input-field col s4">
+            <input type="date" id="actualDeadline" name="actualDeadline" placeholder="">
+            <label for="actualDeadline">Actual Deadline</label>
+         </div>
+         <div class="input-field col s12">
+            <select id="cwStatus" name="cwStatus">
+               <option value="Active">Active</option>
+               <option value="Completed">Completed</option>
+            </select>
+            <label for="cwStatus">Status</label>
+         </div>
+      </div>
+      <div class="row col sm9">
+         <input type="submit" value="Save" class="btn teal">
+         <a href="/dashboard" class="btn grey lighten-1">Cancel</a>
+      </div>
+   </form>
+</div>
+

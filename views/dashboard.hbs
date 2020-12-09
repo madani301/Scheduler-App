@@ -1,0 +1,45 @@
+
+
+<h3>Welcome, {{name}}!</h3>
+{{#if courseworks}}
+<table class="striped">
+   <thead>
+      <div class="row col sm5">
+         <a href="/active" class="btn teal">Active Courseworks</a>
+      </div>
+      <tr>
+         <th>Coursework</th>
+         <th>Target Deadline</th>
+         <th>Actual Deadline</th>
+         <th>Module</th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      {{#each courseworks}}
+      <tr>
+         <td><a class="tag" href="/courseworks/{{_id}}">{{cwTitle}}</a></td>
+         <td>{{formatDate targetDeadline 'MMMM Do, h:mm a'}}</td>
+         <td>{{formatDate actualDeadline 'MMMM Do, h:mm a'}}</td>
+         <td><span class="dash-mod">{{modName}}</span></td>
+         <td>
+            <a href="/courseworks/edit/{{_id}}" class="waves-effect waves-teal btn-flat">
+            <i class="tiny material-icons">edit</i>
+            </a>
+         </td>
+         <td>
+            <form action="/courseworks/{{_id}}" method="POST" id="delete-form">
+               <input type="hidden" name="_method" value="DELETE">
+               <button type="submit" class="waves-effect waves-teal btn-flat">
+               <i class="tiny material-icons">delete</i>
+               </button>
+            </form>
+         </td>
+      </tr>
+      {{/each}}
+   </tbody>
+</table>
+{{else}}
+<p>Life is a bit too simple at the moment. Add that coursework and get it done!</p>
+{{/if}}
+

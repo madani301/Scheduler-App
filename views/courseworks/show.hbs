@@ -1,0 +1,87 @@
+
+
+<div class="row">
+   <div class="col s12 m8">
+      <h3>{{coursework.cwTitle}}
+         <small>{{{editIcon coursework.user user coursework._id false}}}</small>
+      </h3>
+      <h6><b id="result">Progress: </b></h6>
+      <div class="card coursework">
+         <div class="card-content">
+            <span class="card-title">
+               <h6><b>Module Name:</b> {{coursework.modName}}</h6>
+            </span>
+            <span class="card-title">
+               <h6><b>Module Level:</b> {{coursework.modLevel}}</h6>
+            </span>
+            <form action="#">
+               <h6><b>Milestones:</b></h6>
+               {{#if coursework.milestones.[1]}}
+               {{#each coursework.milestones}}
+               <p>
+                  <label>
+                  <input type="checkbox" name="milestones"/>
+                  <span>{{this}}</span>
+                  </label>
+               </p>
+               {{/each}}
+               {{/if}}
+               {{!-- 
+               <p>
+                  <label>
+                  <input type="checkbox" name="milestones" />
+                  <span>{{coursework.milestones.[1]}}</span>
+                  </label>
+               </p>
+               <p>
+                  <label>
+                  <input type="checkbox" name="milestones" />
+                  <span>{{coursework.milestones.[2]}}</span>
+                  </label>
+               </p>
+               --}}
+            </form>
+            <span class="card-title">
+               <h6><b>Start Date:</b> {{formatDate coursework.startDate 'DD-MM-YYYY'}}</h6>
+            </span>
+            <span class="card-title">
+               <h6><b>Target Deadline:</b> {{formatDate coursework.targetDeadline 'DD-MM-YYYY'}}</h6>
+            </span>
+            <span class="card-title">
+               <h6><b>Actual Deadline:</b> {{formatDate coursework.actualDeadline 'DD-MM-YYYY'}}</h6>
+            </span>
+         </div>
+      </div>
+      <input type="text" id="myInput" name="search" value="localhost:3000/courseworks/edit/{{coursework._id}}">
+      <label for="modName"></label>
+      <input type="submit" value="Share" class="btn" onclick="myFunction()">
+      <script>
+         showChecked();
+         function showChecked(){
+         document.getElementById("result").textContent = "Progress: " + document.querySelectorAll("input:checked").length + "/" + document.querySelectorAll("input[name=milestones]").length;
+         }
+         document.querySelectorAll("input[name=milestones]").forEach(i=>{
+         i.onclick = function(){
+         showChecked();
+         }
+         });
+      </script>
+      <script>
+         function myFunction() {
+         /* Get the text field */
+         var copyText = document.getElementById("myInput");
+         
+         /* Select the text field */
+         copyText.select();
+         copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+         
+         /* Copy the text inside the text field */
+         document.execCommand("copy");
+         
+         /* Alert the copied text */
+         alert("Copied the text: " + copyText.value);
+         }
+      </script>
+   </div>
+</div>
+

@@ -1,0 +1,64 @@
+
+
+<h3>Edit Coursework</h3>
+<div class="row">
+   <form action="/courseworks/{{coursework._id}}" method="POST" class="col s12">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="input-field col s12">
+         <input type="text" id="title" name="title" value="{{coursework.cwTitle}}">
+         <label for="title">Coursework</label>
+      </div>
+      <div class="input-field col s12">
+         <select id="modLevel" name="modLevel">
+            {{#select coursework.modLevel}}
+            <option value="Level 1" selected>Level 1</option>
+            <option value="Level 1">Level 1</option>
+            <option value="Level 2">Level 2</option>
+            <option value="Level 3">Level 3</option>
+            <option value="Level 4">Level 4</option>
+            {{/select}}
+         </select>
+         <label for="modLevel">Module Level</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="text" id="milestones" name="milestones" value="{{coursework.milestones.[0]}}">
+         <label for="milestones">Milestone 1</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="text" id="milestones" name="milestones" value="{{coursework.milestones.[1]}}">
+         <label for="milestones">Milestone 2</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="text" id="milestones" name="milestones" value="{{coursework.milestones.[2]}}">
+         <label for="milestones">Milestone 3</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="date" id="startDate" name="startDate" placeholder="" value="{{formatDate coursework.startDate 'YYYY-MM-DD'}}">
+         <label for="startDate">Start Date</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="date" id="targetDeadline" name="targetDeadline" placeholder="" value="{{formatDate coursework.targetDeadline 'YYYY-MM-DD'}}">
+         <label for="targetDeadline">Target Deadline</label>
+      </div>
+      <div class="input-field col s4">
+         <input type="date" id="actualDeadline" name="actualDeadline" placeholder="" value="{{formatDate coursework.actualDeadline 'YYYY-MM-DD'}}">
+         <label for="actualDeadline">Actual Deadline</label>
+      </div>
+      <div class="input-field col s12">
+         <select id="cwStatus" name="cwStatus">
+            {{#select coursework.cwStatus}}
+            <option value="Active">Active</option>
+            <option value="Completed">Completed</option>
+            {{/select}}
+         </select>
+         <label for="cwStatus">Status</label>
+      </div>
+      <div class="row col s12">
+         <input type="submit" value="Save" class="btn teal">
+         <a href="/dashboard" class="btn grey lighten-1">Cancel</a>
+      </div>
+   </form>
+</div>
+</div>
+</div>
+
